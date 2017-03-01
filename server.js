@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mongojs= require('mongojs');
 // var db = mongojs('canucksScore', ['canucksScore']); //for local host mongodb
-var db = mongojs('mongodb://<dbuser>:<dbpassword>@ds113650.mlab.com:13650/canucksscore', ['canucksScore']);//for heroku
+var db = mongojs('mongodb://<jlncheung>:<lolgtfo123>@ds113650.mlab.com:13650/canucksscore', ['canucksScore']);//for heroku
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
