@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
 var mongojs= require('mongojs');
-var db = mongojs('canucksScore', ['canucksScore']);
+// var db = mongojs('canucksScore', ['canucksScore']); //for local host mongodb
+var db = mongojs('mongodb://<dbuser>:<dbpassword>@ds113650.mlab.com:13650/canucksscore', ['canucksScore']);//for heroku
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyparser.urlencoded({limit: '50mb', extended: true}));
 
 app.get('/canucksScore',function(req,res){
 	console.log("I received a GET request");
