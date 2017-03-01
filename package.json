@@ -2,7 +2,7 @@
     "name": "mongohockey",
     "description": "Vancouver Canucks hockey scores",
     "version" : "1.0.0",
-    "egines": {
+    "engines": {
         "node": "0.10.32",
         "npm": "1.4.28"
     },
