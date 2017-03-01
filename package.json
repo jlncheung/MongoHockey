@@ -3,7 +3,8 @@
     "description": "Vancouver Canucks hockey scores",
     "version" : "1.0.0",
     "egines": {
-        "node": "0.10.32"
+        "node": "0.10.32",
+        "npm": "1.4.28"
     },
     "scripts": {
         "start": "ndoe server.js"
