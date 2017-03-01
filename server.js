@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mongojs= require('mongojs');
 // var db = mongojs('canucksScore', ['canucksScore']); //for local host mongodb
-var db = mongojs(process.env.MONGOLAB_URI, ['canucksScore']);//for heroku
+var db = mongojs(process.env.MONGOLAB_URI || mongodb://heroku_s6qkj8dh:jvvrg70ahjl4p1qutcpq4mksvc@ds143737.mlab.com:43737/heroku_s6qkj8dh, ['canucksScore']);//for heroku
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
@@ -52,5 +52,11 @@ app.put('/canucksScore/:id', function(req,res){
 });
 
 
-app.listen(3000);
-console.log('app running on 3000');
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+	console.log("Listening on " + port);
+});
+
+//for localhost
+// app.listen(3000);
+// console.log('app running on 3000');
