@@ -1,0 +1,11 @@
+{
+    "name": "mongohockey",
+    "description": "Vancouver Canucks hockey scores",
+    "version" : "1.0.0",
+    "egines": {
+        "node": "0.10.32"
+    },
+    "scripts": {
+        "start": "ndoe server.js"
+    }
+}
