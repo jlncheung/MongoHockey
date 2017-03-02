@@ -1,10 +1,28 @@
 var app = angular.module('myApp',['720kb.datepicker']);
 app.controller('myCtrl',['$scope','$http', function($scope, $http){
+	function winlose(){
+		$http.get('/canucksScore').then(function(response){
+			res = response.data;
+			for(i=0;i<res.length;i++){
+				console.log(res[i].goals);
+				if(res[i].goals>res[i].goalsA){
+					console.log("win");
+					document.getElementsByClassName('colour')[i].style.backgroundColor = '#B2DBBF';
+
+				}
+				else{
+					document.getElementsByClassName('colour')[i].style.backgroundColor = '#FF4576';
+				}
+			}
+		});
+	}
+
 	function refresh(){
 		$http.get('/canucksScore').then(function(response){
 			console.log("Data recieved");
 			$scope.canucksScore = response.data;
 			$scope.score= null;
+			winlose();
 		});
 	};
 
@@ -44,6 +62,7 @@ app.controller('myCtrl',['$scope','$http', function($scope, $http){
 		$scope.score=null;
 	};
 
+	winlose();
+
 
 }]);
-
