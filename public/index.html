@@ -8,13 +8,16 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-datepicker/2.1.7/angular-datepicker.min.css"></script>
+		<link href="default.css" rel="stylesheet" />
 		<title> Hockey Scores for Canucks</title>
-		
+
 	</head>
 
 	<body>
 		<div class='container-fluid' ng-controller='myCtrl'>
-			<h1>Hockey Scores for Vancouver Canucks</h1>
+			<h1>Hockey Scores for Vancouver Canucks	</h1>
+			<div class='color-box' style='background-color: #B2DBBF;'><span style="padding-left:35px;"> Win </span></div>
+			<p class='color-box' style='background-color: #FF4576;'> <span style="padding-left:35px;"> Lose </span> </p>
 			<table class='table'>
 				<thead>
 					<tr>
@@ -39,7 +42,7 @@
 						<td><button class='btn btn-secondary' ng-click='update()'>Update </button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
 
 					</tr>
-					<tr ng-repeat='score in canucksScore'>
+					<tr ng-repeat='score in canucksScore' class='colour'>
 						<td>{{score.date}}</td>
 						<td>{{score.team}}</td>
 						<td>{{score.goals}}</td>
@@ -52,6 +55,7 @@
 		</div>
 
 
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-datepicker/2.1.7/angular-datepicker.min.js"></script>
 	<script src='controllers/controller.js'></script>
